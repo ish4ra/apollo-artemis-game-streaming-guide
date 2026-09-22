@@ -27,9 +27,29 @@ This README focuses on **real setup, tuning, and troubleshooting**, especially t
 
 ## What are Apollo and Artemis?
 
-**Apollo** is a Sunshine-derived self-hosted game-streaming host. It supports hardware encoding on NVIDIA, AMD, and Intel GPUs and includes a Web UI, client permissions, and integrated virtual-display support.
+Apollo and Artemis are not completely separate ideas from the better-known **Sunshine + Moonlight** stack. They are forks/derived projects from that ecosystem:
 
-**Artemis** is an Android GameStream client derived from Moonlight and designed to integrate closely with Apollo.
+| Original project | Fork / derived project | Role |
+|---|---|---|
+| **Sunshine** | **Apollo** | PC game-streaming host |
+| **Moonlight Android** | **Artemis** | Android / Android TV streaming client |
+
+**Apollo** is a fork/derivative of **Sunshine**. It keeps the same general job — running on the gaming PC and streaming the desktop/games to compatible clients — while adding its own features such as integrated SudoVDA virtual displays, per-client permissions, clipboard sync, client-specific display identities, and tighter Artemis integration.
+
+**Artemis** is a fork/derivative of **Moonlight Android** and was previously known as **Moonlight Noir**. It can connect to Apollo or Sunshine, but Apollo + Artemis are designed to work especially well together, including Apollo virtual-display and server-command integrations.
+
+So the relationship is roughly:
+
+```text
+Sunshine  ──fork/derived──>  Apollo
+   │                         │
+   │ host                    │ host + extra Apollo features
+   │                         │
+Moonlight Android ─fork/derived─> Artemis
+          client                 client + Apollo integration
+```
+
+If you already understand **Sunshine + Moonlight**, you can think of **Apollo + Artemis** as an alternative forked stack built from the same open-source ecosystem, with extra features and tighter integration between the host and Android client.
 
 Useful Apollo + Artemis features include:
 
@@ -889,10 +909,17 @@ This makes it much easier to identify the exact point where smoothness gets wors
 
 - Repository: https://github.com/ClassicOldSong/moonlight-android
 
-### Related upstream projects
+### Upstream projects / fork relationship
 
-- Sunshine: https://github.com/LizardByte/Sunshine
-- Moonlight: https://github.com/moonlight-stream
+- **Sunshine** — https://github.com/LizardByte/Sunshine  
+  Apollo was created as a fork/derivative of Sunshine.
+
+- **Moonlight Android** — https://github.com/moonlight-stream/moonlight-android  
+  Artemis is a fork/derivative of Moonlight Android and was previously called Moonlight Noir.
+
+- **Moonlight project** — https://github.com/moonlight-stream
+
+Apollo's own documentation currently points users to Sunshine documentation for some shared concepts, which is another reason Sunshine knowledge is useful when configuring Apollo.
 
 All software belongs to its respective authors and contributors.
 
